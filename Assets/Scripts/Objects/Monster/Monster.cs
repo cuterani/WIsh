@@ -5,10 +5,8 @@ using UnityEngine;
 public class Monster : Movable
 {
     public PlayerController a;
-    void Start()
-    {Debug.Log(a.name);
+    
 
-    }
     protected override void Update()
     {
         base.Update();
@@ -16,9 +14,9 @@ public class Monster : Movable
             FollowPlayer();
     }
 
-    void FollowPlayer()
+    protected void FollowPlayer()
     {
-        Vector3 dir = GameManager.Ingame.Player.transform.position - transform.position;
+        Vector3 dir =GameManager.Ingame.Player.transform.position - transform.position;
 
         if(Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
@@ -37,11 +35,7 @@ public class Monster : Movable
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        Debug.Log("Gameover");
-    }
-
+    
 
 
 
